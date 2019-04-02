@@ -1,17 +1,23 @@
 .header {
     border: 6px solid black;
+    height: 200px;
 }
 
 #logo {
     width: 200px;
     height: 200px;
     background: tomato;
-    display: inl;
+    position: relative;
+    left: 950px;
+    top: 100px;
+    z-index: -40;
+    /* position: fixed;
+    top: 30px;
+    left: 40px; */
 }
 
 #menu {
     width: 200px;
     height: 200px;
     background: violet;
-    display: inline-block;
 }
