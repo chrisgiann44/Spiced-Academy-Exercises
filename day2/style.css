@@ -1,23 +1,19 @@
 .header {
     border: 6px solid black;
-    height: 200px;
+    height: 400px;
+    top: 40px;
 }
 
 #logo {
     width: 200px;
     height: 200px;
-    background: tomato;
-    position: relative;
-    left: 950px;
-    top: 100px;
-    z-index: -40;
-    /* position: fixed;
-    top: 30px;
-    left: 40px; */
+    background: red;
 }
 
 #menu {
     width: 200px;
     height: 200px;
-    background: violet;
+    background: green;
+    position: relative;
+    z-index: 60;
 }
