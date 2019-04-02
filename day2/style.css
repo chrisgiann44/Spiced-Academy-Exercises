@@ -1,0 +1,17 @@
+.header {
+    border: 6px solid black;
+}
+
+#logo {
+    width: 200px;
+    height: 200px;
+    background: tomato;
+    display: inl;
+}
+
+#menu {
+    width: 200px;
+    height: 200px;
+    background: violet;
+    display: inline-block;
+}
