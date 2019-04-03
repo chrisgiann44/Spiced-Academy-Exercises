@@ -1,25 +1,64 @@
-#hmenu {
-    float: right;
-    width: 50px;
-}
-
-#sprint {
-    width: 190px;
-}
-
 header {
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+}
+
+#hmenu {
+    float: right;
+    transform: scale(0.6);
+}
+
+#sprint {
+    transform: scale(0.7);
+    margin-top: 10px;
 }
 
 .card {
     background-image: url("assets/reichstag.jpg");
+    background-size: cover;
+    height: 1123px;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+.cardcontent {
+    align-items: center;
+    align-content: center;
+    position: relative;
+    top: 550px;
 }
 
 h1 {
+    margin-top: 0px;
     color: white;
+    font-size: 80px;
     font-style: italic;
-    font-weight: lighter;
+    font-weight: bold;
+    text-align: center;
+}
+
+button {
+    background-color: #ffc53c;
+    color: tomato;
+    width: 430px;
+    height: 80px;
+    border: 3px solid tomato;
+    border-radius: 40px;
+    font-size: 50px;
+    position: relative;
+    left: 780px;
+}
+
+.options {
+    background-color: #cbcbcb;
+    height: 480px;
+}
+
+footer {
+    color: white;
+    font-weight: bold;
+    background-color: #666666;
+    height: 30px;
+    padding-left: 20px;
+    padding-top: 10px;
 }

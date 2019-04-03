@@ -9,4 +9,4 @@ function mil(n) {
     }
 }
 
-console.log(mil(98));
+console.log(mil(99));
