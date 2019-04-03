@@ -1,0 +1,25 @@
+#hmenu {
+    float: right;
+    width: 50px;
+}
+
+#sprint {
+    width: 190px;
+}
+
+header {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-image: url("assets/reichstag.jpg");
+}
+
+h1 {
+    color: white;
+    font-style: italic;
+    font-weight: lighter;
+}
