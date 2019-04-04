@@ -7,4 +7,4 @@ function sum() {
 }
 
 console.log(sum(1, 8));
-console.log(sum(121, 2348));
+console.log(sum(121, 2348, 545, 4545, 4545, 4545, 45));
