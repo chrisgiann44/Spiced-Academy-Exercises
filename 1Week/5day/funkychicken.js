@@ -16,6 +16,6 @@ function fn() {
     }
 }
 
-var numbers = {};
+numbers = {};
 
 numbers.y = xx;
