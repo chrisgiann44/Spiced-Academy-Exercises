@@ -21,3 +21,5 @@ each(
 each(["a", "b"], function(val, idx) {
     console.log("The value of item " + idx + " is " + val);
 });
+
+each(3, 3);
