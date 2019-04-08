@@ -1,24 +1,28 @@
-div {
-    display: inline-block;
+body {
+    margin: 0px;
 }
 
-#container {
-    border: 5px solid green;
-    width: 650px;
-    height: 350px;
-    padding: 20px;
+#ticker {
+    overflow: hidden;
+    margin: 0px
+    padding: 0px;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 2px black solid;
+    height: 1.5em;
 }
 
-.box {
-    background: violet;
-    width: 200px;
-    height: 300px;
-    font-style: i;
+#headlines {
+    position: absolute;
+    margin: 0px;
+    padding: 0px ;
+    top: 10px;
+    left: 50%;
+    white-space: nowrap;
+    text-decoration: none;
 }
 
-#circle {
-    background: tomato;
-    height: 200px;
-    width: 200px;
-    border-radius: 50px;
+#headlines a {
+    padding-right: 20px;
+    text-decoration: none;
 }

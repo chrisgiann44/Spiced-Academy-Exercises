@@ -19,8 +19,9 @@ function fn2(arg, fnc) {
 }
 
 function fn3(arg, fnc) {
-    setTimeout(fnc.bind(arg), 2000);
-    return fnc.bind(arg);
+    setTimeout(function() {
+        fnc(arg);
+    }, 5000);
 }
 
 fn(2);
