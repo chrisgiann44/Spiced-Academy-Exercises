@@ -1,0 +1,22 @@
+div {
+    display: inline-block;
+}
+
+#container {
+    border: 5px solid green;
+    width: 900px;
+    height: 600px;
+}
+
+.box {
+    background: violet;
+    width: 200px;
+    height: 300px;
+}
+
+#circle {
+    background: tomato;
+    height: 200px;
+    width: 200px;
+    border-radius: 50px;
+}
