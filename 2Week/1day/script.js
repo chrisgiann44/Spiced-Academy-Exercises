@@ -1,6 +1,7 @@
 var headlines = document.getElementById("headlines");
 var links = headlines.getElementsByTagName("a");
 var left = headlines.offsetLeft;
+var animId;
 
 function move() {
     left--;
@@ -12,7 +13,19 @@ function move() {
 
     headlines.style.left = left + "px";
 
-    requestAnimationFrame(move);
+    animId = requestAnimationFrame(move);
 }
+for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener("mouseover", function(evt) {
+        cancelAnimationFrame(animId);
+        evt.target.style.textDecoration = "underline";
+        evt.target.style.fontWeight = "bold";
+    });
 
+    links[i].addEventListener("mouseout", function(evt) {
+        evt.target.style.textDecoration = "none";
+        evt.target.style.fontWeight = "normal";
+        move();
+    });
+}
 move();
