@@ -34,6 +34,7 @@ function fn3() {
     newDiv.style.left = "20px";
     newDiv.style.top = "100px";
     newDiv.style.fontSize = "200px";
+    body.appendChild(newDiv);
 }
 
 fn3();
