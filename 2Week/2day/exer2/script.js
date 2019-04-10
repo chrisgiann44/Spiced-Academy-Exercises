@@ -7,6 +7,6 @@ textArea.addEventListener("input", function() {
     var newText = "";
     for (var i = 0; i < inputLength; i++) {
         newText += text[i];
-        textArea.value = newText;
     }
+    textArea.value = newText;
 });
