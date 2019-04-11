@@ -1,0 +1,27 @@
+body {
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    position: absolute;
+    background-color: green;
+    height: 70px;
+    align-self: flex-start;
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    background-color: yellow;
+    position: absolute;
+    align-self: flex-end;
+    height: 30px;
+    width: 100%;
+}

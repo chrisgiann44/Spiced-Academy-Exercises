@@ -1,0 +1,33 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+}
+
+header {
+    width: 100%;
+    background-color: green;
+    height: 70px;
+    align-self: flex-start;
+    position: absolute;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    height: 50vh;
+}
+
+footer {
+    background-color: yellow;
+    height: 30px;
+    width: 100%;
+    align-self: flex-end;
+    position: absolute;
+}
