@@ -5,28 +5,46 @@
     var transitioning;
     var timer;
 
-    timer = setTimeout(carousel, 3000);
+    timer = setTimeout(carousel, 5000);
 
     document.addEventListener("transitionend", function(e) {
         if (e.target.classList.contains("exit")) {
-            timer = setTimeout(carousel, 3000);
+            timer = setTimeout(carousel, 5000);
             e.target.classList.remove("exit");
         }
 
         transitioning = false;
     });
 
+    // for (var i = 0; i < dots.length; i++) {
+    //     (function(i) {
+    //         dots[i].addEventListener("click", function() {
+    //             if (transitioning) {
+    //                 return;
+    //             }
+    //             if (cur == i) {
+    //                 return;
+    //             } else {
+    //                 clearTimeout(timer);
+    //                 carousel(i);
+    //             }
+    //         });
+    //     })(i);
+    // }
+
     for (var i = 0; i < dots.length; i++) {
-        (function(i) {
-            dots[i].addEventListener("click", function() {
-                if (transitioning) {
-                    return;
-                } else {
-                    clearTimeout(timer);
-                    carousel(i);
-                }
-            });
-        })(i);
+        dots[i].addEventListener("click", function(e) {
+            if (e.target.classList.contains("on")) {
+                return;
+            }
+            if (transitioning) {
+                return;
+            } else {
+                var x = e.target.id.replace("dot", "");
+                clearTimeout(timer);
+                carousel(x);
+            }
+        });
     }
 
     function carousel(arg) {
