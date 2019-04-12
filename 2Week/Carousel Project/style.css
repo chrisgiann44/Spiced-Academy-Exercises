@@ -4,7 +4,7 @@ body {
 
 #mtains {
     position: relative;
-    height: 600px;
+    height: 800px;
     overflow: hidden;
 }
 .mtain {
@@ -25,7 +25,7 @@ body {
 
 .mtain.onscreen img {
     transform: translateX(0%);
-    border-radius: 20px;
+    border-radius: 120px;
     transition-property: border-radius;
     transition-duration: 1500ms;
 }
@@ -46,4 +46,26 @@ body {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+#dots {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.dot {
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    height: 20px;
+    border: 2px solid white;
+}
+
+.dot.on {
+    background-color: white;
 }
