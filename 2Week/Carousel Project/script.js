@@ -5,14 +5,13 @@
     var transitioning;
     var timer;
 
-    timer = setTimeout(carousel, 5000);
+    timer = setTimeout(carousel, 2000);
 
     document.addEventListener("transitionend", function(e) {
         if (e.target.classList.contains("exit")) {
-            timer = setTimeout(carousel, 5000);
+            timer = setTimeout(carousel, 2000);
             e.target.classList.remove("exit");
         }
-
         transitioning = false;
     });
 
@@ -38,6 +37,7 @@
                 return;
             }
             if (transitioning) {
+                clearTimeout(timer);
                 return;
             } else {
                 var x = e.target.id.replace("dot", "");
