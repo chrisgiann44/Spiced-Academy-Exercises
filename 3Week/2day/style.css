@@ -1,0 +1,22 @@
+input {
+    width: 300px;
+    font-size: 20px;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.results {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 300px;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.result.on {
+    background-color: grey;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
