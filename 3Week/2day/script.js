@@ -228,6 +228,7 @@
         "Zimbabwe"
     ];
     var results = $(".results");
+
     //Code
 
     input.on("input focus", function() {
@@ -272,6 +273,7 @@
     });
 
     // Mousedown
+
     $(".results").on("mousedown", function(e) {
         input.val(e.target.innerHTML);
         results.hide();
