@@ -258,7 +258,7 @@
             }
         }
 
-        results.show().html(resultsHtml);
+        results.slideDown("slow").html(resultsHtml);
     });
 
     // Mouseover
@@ -282,7 +282,6 @@
     // Keydown
 
     $("input").on("keydown", function(e) {
-        // console.log(!$(".on").length);
         if (e.keyCode == 40 /*keydown*/) {
             if (!$(".on").length) {
                 $(".result")
@@ -317,5 +316,15 @@
 
     input.on("blur", function() {
         results.hide();
+    });
+
+    $("input").mouseover(function() {
+        $("input").css({ background: "grey" });
+        $("input").addClass("on");
+    });
+
+    $("input").mouseleave(function() {
+        $("input").css({ background: "" });
+        $("input").removeClass("on");
     });
 })();
