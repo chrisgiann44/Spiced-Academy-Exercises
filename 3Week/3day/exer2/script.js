@@ -29,7 +29,7 @@
             return germNumbers[num - 1];
         } catch (e) {
             console.log(e);
-            translateNumberToGerman();
+            return translateNumberToGerman();
         }
     }
 })();
