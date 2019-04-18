@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+.container {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.info {
+    float: left;
+    min-height: 100vh;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    display: grid;
+    grid-template: 30% 30% 30% / 100%;
+    width: 30%;
+}
+
+.pl1 {
+}
+
+.board {
+    float: right;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 65%;
+    min-height: 100vh;
+}
+
+.slot {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    background-color: blue;
+    cursor: grab;
+}
+.hole {
+    width: 80px;
+    height: 80px;
+    background-color: #f2eee0;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.slot.player1 .hole {
+    background-color: red;
+}
+
+.slot.player2 .hole {
+    background-color: yellow;
+}
+
+button {
+    display: block;
+    margin: auto;
+    width: 10%;
+    height: 20%;
+}
+
+#lu {
+    border-top-left-radius: 20px;
+}
+
+#ru {
+    border-bottom-right-radius: 20px;
+}
+
+#ld {
+    border-bottom-left-radius: 20px;
+}
+
+#rd {
+    border-top-right-radius: 20px;
+}
