@@ -10,6 +10,9 @@
             currentPlayer = "player2";
             $(".pl1").removeClass("on");
             $(".pl2").addClass("on");
+            // setTimeout(function() {
+            //     pcPlays();
+            // }, 3000);
         } else {
             currentPlayer = "player1";
             $(".keyhole").removeClass("player2");
@@ -31,7 +34,7 @@
 
         setTimeout(function() {
             $(".movingSlot").removeClass("fall");
-        }, 700);
+        }, 900);
 
         $(".keyhole").removeClass("on");
 
@@ -277,6 +280,11 @@
                 }
             }
         } else if (e.keyCode == 13 /*enter*/) {
+            $(".keyhole").addClass("fall");
+
+            setTimeout(function() {
+                $(".keyhole").removeClass("fall");
+            }, 700);
             var parentColumn = $(".keyhole.on")
                 .parent()
                 .parent()
@@ -439,7 +447,7 @@
         }
     });
 
-    $("li").on("click", function(e) {
+    $("#coln").on("click", function(e) {
         e.stopPropagation();
         e.preventDefault();
         if ($(e.target).text() == 7) {
@@ -498,6 +506,53 @@
             }
         }
     });
+
+    /* ------ PLAYING WITH PC ---------*/
+
+    function getRandomNumber(num) {
+        return Math.floor(Math.random() * num);
+    }
+
+    function pcPlays() {
+        var freeColumns = 0;
+
+        for (var i = 0; i < $(".column").length; i++) {
+            if (
+                !$(".column")
+                    .eq(i)
+                    .hasClass("optional")
+            ) {
+                freeColumns++;
+            }
+        }
+        var rNum = getRandomNumber(-freeColumns);
+        console.log(rNum);
+        console.log(freeColumns);
+
+        for (var q = 5; q >= 0; q--) {
+            if (
+                !$(".column")
+                    .eq(rNum)
+                    .find(".slot")
+                    .eq(q)
+                    .hasClass("player1") &&
+                !$(".column")
+                    .eq(rNum)
+                    .find(".slot")
+                    .eq(q)
+                    .hasClass("player2")
+            ) {
+                console.log($(".column").eq(rNum));
+                $(".column")
+                    .eq(rNum)
+                    .find(".slot")
+                    .eq(q)
+                    .addClass(currentPlayer);
+                break;
+            }
+        }
+        switchPlayers();
+    }
 
     /* ------ END ---------*/
 })();
