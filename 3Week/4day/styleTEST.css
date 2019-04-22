@@ -3,8 +3,21 @@
     margin: 0;
 }
 
+.outer {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.inner {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: 5px orange solid;
+    box-shadow: 0 0 0 500px orange;
+}
+
 .movingSlot {
-    z-index: -1;
     position: absolute;
     width: 100px;
     height: 100px;
@@ -17,15 +30,8 @@
     background-color: yellow;
 }
 
-.movingSlot.fall {
-    transition: 700ms;
-    transform: translateY(1000px);
-}
-
 body {
-    overflow: hidden;
-    background-color: #f0eec8;
-    border: 1px solid black;
+    border: 3px solid red;
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -36,32 +42,19 @@ body {
     background-color: white;
     display: flex;
     width: 35%;
+    background-color: purple;
     z-index: 100;
-    background-color: #00b7a8;
     position: relative;
     justify-content: center;
 }
 
 .maininfo {
     position: relative;
-    z-index: 999;
+    z-index: 100;
     display: block;
     width: 90%;
-    height: 65%;
-    padding-top: 5%;
-}
-
-.infoup {
-    display: block;
-    padding: 3%;
-    margin-bottom: 5%;
-    border-radius: 20px;
-    border: 2px solid black;
-    justify-content: space-between;
-    width: 100%;
-    height: 30%;
+    height: 55%;
     align-self: center;
-    padding-bottom: 5%;
 }
 
 .info {
@@ -158,50 +151,15 @@ button {
     width: 120px;
     height: 120px;
     padding: 10px;
-    background-color: transparent;
-    overflow: hidden;
+    background-color: #048998;
     cursor: grab;
 }
 .hole {
-    box-shadow: 0 0 0 50px #0c084c;
-    background-color: transparent;
     width: 100px;
     height: 100px;
+    background-color: #e7eaf6;
     border-radius: 50%;
     border: 1px solid black;
-}
-
-.keyslot {
-    width: 120px;
-    height: 120px;
-    padding: 10px;
-    margin-bottom: 50px;
-    background-color: transparent;
-}
-.keyhole {
-    background-color: transparent;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-.keyhole {
-    visibility: hidden;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-.keyhole.on {
-    visibility: visible;
-}
-
-.keyhole.player1 {
-    background-color: red;
-}
-
-.keyhole.player2 {
-    background-color: yellow;
 }
 
 .slot.player1 .hole {
@@ -212,71 +170,18 @@ button {
     background-color: yellow;
 }
 
-.optional {
-    display: none;
-}
-
-.infoup p {
-    font-size: 22px;
-    color: white;
-    padding-bottom: 5%;
-}
-
-.dropbtn {
-    background-color: #4caf50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    width: 100%;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content li {
-    color: black;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content li:hover {
-    background-color: #ddd;
-    cursor: grab;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-
-#ru {
-    border-top-right-radius: 20px;
-}
-
-#rd {
-    border-bottom-right-radius: 20px;
-}
-
 #lu {
     border-top-left-radius: 20px;
 }
 
+#ru {
+    border-bottom-right-radius: 20px;
+}
+
 #ld {
     border-bottom-left-radius: 20px;
+}
+
+#rd {
+    border-top-right-radius: 20px;
 }
