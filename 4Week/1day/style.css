@@ -1,0 +1,28 @@
+body {
+    margin: 0px;
+}
+
+#ticker {
+    overflow: hidden;
+    margin: 0px
+    padding: 0px;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 2px black solid;
+    height: 1.5em;
+}
+
+#headlines {
+    position: absolute;
+    margin: 0px;
+    padding: 0px ;
+    top: 10px;
+    left: 50%;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+#headlines a {
+    padding-right: 20px;
+    text-decoration: none;
+}
