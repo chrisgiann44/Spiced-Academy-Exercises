@@ -1,9 +1,6 @@
 var left = $("#headlines").offset().left;
-var dlinks = $("#dheadlines a");
 var links = $("a");
 var animIdUp;
-var animId;
-var leftR = $("#dheadlines").offset().left;
 
 function moveLeft() {
     left--;
@@ -21,31 +18,9 @@ function moveLeft() {
     animIdUp = requestAnimationFrame(moveLeft);
 }
 
-function moveRight() {
-    leftR++;
-
-    if (
-        $("#dheadlines").offset().left + $("#dheadlines").width() >
-        $(window).width() + dlinks.eq(-1).width()
-    ) {
-        console.log(7);
-        dlinks.eq(-1).prependTo($("#dheadlines"));
-        leftR += 15 + dlinks.eq(-1).width();
-        dlinks = $("#dheadlines a");
-    }
-
-    $("#dheadlines").css({
-        left: leftR + "px"
-    });
-
-    animId = requestAnimationFrame(moveRight);
-}
-
 $("a").on("mouseover", function(e) {
     if ($("a").hasClass("up")) {
         cancelAnimationFrame(animIdUp);
-    } else if (!$("a").hasClass("up")) {
-        cancelAnimationFrame(animId);
     }
 
     $(e.target).css({
@@ -61,8 +36,6 @@ $("a").on("mouseout", function(e) {
     });
 
     moveLeft();
-    moveRight();
 });
 
 moveLeft();
-moveRight();
