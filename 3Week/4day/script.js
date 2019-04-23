@@ -3,6 +3,30 @@
 
     /* ------ switchPlayers---------*/
 
+    var single;
+
+    $(".single").on("click", function() {
+        if (single != true) {
+            single = true;
+            $(".single button")
+                .html("Single Player Activated")
+                .css({
+                    color: "red",
+                    opacity: "0.6",
+                    fontWeight: "bold"
+                });
+        } else {
+            $(".single button")
+                .html("Activate Single Player!")
+                .css({
+                    color: "white",
+                    opacity: "1",
+                    fontWeight: "normal"
+                });
+            single = false;
+        }
+    });
+
     function switchPlayers() {
         if (currentPlayer == "player1") {
             $(".keyhole").addClass("player2");
@@ -10,9 +34,11 @@
             currentPlayer = "player2";
             $(".pl1").removeClass("on");
             $(".pl2").addClass("on");
-            // setTimeout(function() {
-            //     pcPlays();
-            // }, 3000);
+            if (single == true) {
+                setTimeout(function() {
+                    pcPlays();
+                }, 2000);
+            }
         } else {
             currentPlayer = "player1";
             $(".keyhole").removeClass("player2");
@@ -217,8 +243,9 @@
 
     /* ------ Reset Button ---------*/
 
-    $("button").click(function() {
+    $(".startbt").click(function(e) {
         location.reload();
+        e.preventDefault();
     });
 
     /* ------ Moving slot ---------*/
@@ -526,8 +553,6 @@
             }
         }
         var rNum = getRandomNumber(-freeColumns);
-        console.log(rNum);
-        console.log(freeColumns);
 
         for (var q = 5; q >= 0; q--) {
             if (
