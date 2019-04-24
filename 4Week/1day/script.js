@@ -1,6 +1,6 @@
 (function() {
     $.ajax({
-        url: "/1day/data.json",
+        url: "/data.json",
         method: "GET",
         success: function(data) {
             var html = "";
