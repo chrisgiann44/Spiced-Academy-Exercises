@@ -58,11 +58,14 @@
                 } else {
                     $(".results").append(htmlContent);
                 }
+                checkScroll();
             }
         });
     }
 
     $(".submit").on("click", function() {
+        $(".results").empty();
+
         $(".moreResults").css({
             visibility: "hidden"
         });
@@ -79,4 +82,18 @@
     $(".moreResults").on("click", function() {
         ajaxCall(nextUrl, null);
     });
+
+    function checkScroll() {
+        // var timer = setTimeout(checkScroll, 1000);
+        // clearTimeout(timer);
+        var hasReachedBottom =
+            $(window).height() + $(window).scrollTop() >=
+            $(document).height() - 100;
+        console.log(hasReachedBottom);
+        if (hasReachedBottom) {
+            ajaxCall(nextUrl, null);
+        } else {
+            setTimeout(checkScroll, 500);
+        }
+    }
 })();

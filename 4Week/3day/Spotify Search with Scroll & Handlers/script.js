@@ -1,4 +1,18 @@
 (function() {
+    Handlebars.templates = Handlebars.templates || {};
+
+    var templates = document.querySelectorAll(
+        'script[type="text/x-handlebars-template"]'
+    );
+
+    Array.prototype.slice.call(templates).forEach(function(script) {
+        Handlebars.templates[script.id] = Handlebars.compile(script.innerHTML);
+    });
+
+    //////////////////////////////////////////////////////
+    ////////////// DO NOT TOUCH ABOVE/////////////////////
+    //////////////////////////////////////////////////////
+
     var nextUrl;
 
     function ajaxCall(url, data) {
@@ -26,43 +40,34 @@
                     });
                 }
 
-                var links = [];
-                var names = [];
-                var images = [];
-                var htmlContent = "";
-
                 for (var i = 0; i < data.items.length; i++) {
-                    links.push(data.items[i].external_urls["spotify"]);
-                    names.push(data.items[i].name);
-                    if (data.items[i].images[0] != null) {
-                        images.push(data.items[i].images[0].url);
-                    } else {
-                        images.push("/icon.jpg");
+                    if (!data.items[i].images[0]) {
+                        data.items[i].images.push({ url: "icon.jpg" });
                     }
                 }
 
-                for (var z = 0; z < links.length; z++) {
-                    htmlContent +=
-                        '<div class="result">' +
-                        '<img src="' +
-                        images[z] +
-                        '">' +
-                        '<a href="' +
-                        links[z] +
-                        '">' +
-                        names[z] +
-                        "</a></div>";
-                }
+                console.log(data.items);
+
                 if ($(".results").html() == null) {
-                    $(".results").html(htmlContent);
+                    $(".results").html(
+                        Handlebars.templates.card({ myData: data.items })
+                    );
                 } else {
-                    $(".results").append(htmlContent);
+                    $(".results").append(
+                        Handlebars.templates.card({ myData: data.items })
+                    );
                 }
+
+                // $("h1").slideDown();
+
+                checkScroll();
             }
         });
     }
 
     $(".submit").on("click", function() {
+        $(".results").empty();
+
         $(".moreResults").css({
             visibility: "hidden"
         });
@@ -79,4 +84,16 @@
     $(".moreResults").on("click", function() {
         ajaxCall(nextUrl, null);
     });
+
+    function checkScroll() {
+        var hasReachedBottom =
+            $(window).height() + $(window).scrollTop() >=
+            $(document).height() - 100;
+        console.log(hasReachedBottom);
+        if (hasReachedBottom) {
+            ajaxCall(nextUrl, null);
+        } else {
+            setTimeout(checkScroll, 1000);
+        }
+    }
 })();
