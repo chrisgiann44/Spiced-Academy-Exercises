@@ -30,15 +30,16 @@
                 1
             );
 
-        $(".cards")
-            .ready()
-            .animate(
+        setTimeout(
+            $(".cards").animate(
                 {
                     width: "100%",
                     marginLeft: "0%"
                 },
-                1500
-            );
+                2000
+            ),
+            2000
+        );
 
         $.ajax({
             url: rootUrl + endpoint,
