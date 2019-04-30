@@ -1,0 +1,19 @@
+{
+    "q": "Welcome on board. Would you like to pay for the trip? [yes] [no]",
+    "answers": {
+        "yes": {
+            "q": "Well then its 1200 Euro. You will pay cash no? [yes] ][no]",
+            "answers": {
+                "yes": {
+                    "q": "do you have the exact amount? [yes] [no]",
+                    "answers": {
+                        "yes": "Excellent! Trip paid",
+                        "no": "Either you pay with card or we have to throw you to the sea"
+                    }
+                },
+                "no": "This is wonderfull i dont have to mess with coins my friend. Excellent! Trip paid"
+            }
+        },
+        "no": "Alright then. We will have to throw you to the sea. Sorry for that!"
+    }
+}
