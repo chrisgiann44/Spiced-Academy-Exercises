@@ -1,0 +1,16 @@
+{
+  "name": "2day",
+  "version": "1.0.0",
+  "description": "",
+  "main": "here_is_some_json_i_will_be_using_in_the_upcoming_class.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2"
+  }
+}

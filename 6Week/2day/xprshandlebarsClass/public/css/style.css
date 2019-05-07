@@ -1,0 +1,15 @@
+* {
+    background-color: teal;
+}
+
+.main {
+    border: solid 5px red;
+    margin: 20px;
+    padding: 10px;
+}
+
+.partial {
+    border: solid 10px red;
+    margin: 30px;
+    padding: 10px;
+}
