@@ -45,7 +45,7 @@ exports.getTweets = function(token, callback) {
         {
             host: "api.twitter.com",
             path:
-                "/1.1/statuses/user_timeline.json?screen_name=theonion&tweet_mode=extended&limit=1",
+                "/1.1/statuses/user_timeline.json?screen_name=theonion&tweet_mode=extended",
             method: "GET",
             headers: {
                 authorization: `Bearer ${token}`
@@ -53,8 +53,7 @@ exports.getTweets = function(token, callback) {
         },
         res => {
             if (res.statusCode != 200) {
-                console.log(7);
-                callback(new Error(res.statusCode));
+                callback(token, new Error(res.statusCode));
             } else {
                 let tweets = "";
                 res.on("data", chunk => (tweets += chunk)).on("end", () => {
