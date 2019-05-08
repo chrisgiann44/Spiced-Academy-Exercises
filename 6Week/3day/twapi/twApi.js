@@ -53,6 +53,7 @@ exports.getTweets = function(token, callback) {
         },
         res => {
             if (res.statusCode != 200) {
+                console.log(7);
                 callback(new Error(res.statusCode));
             } else {
                 let tweets = "";
