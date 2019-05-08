@@ -22,7 +22,6 @@ fs.readdir(
             for (var i = 0; i < files.length; i++) {
                 projsArr.push(files[i].name);
             }
-            console.log(projsArr);
         }
     }
 );
