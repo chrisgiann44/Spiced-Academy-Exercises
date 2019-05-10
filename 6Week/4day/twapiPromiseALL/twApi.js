@@ -1,7 +1,7 @@
 const https = require("https");
 const { consumerKey, consumerSecret } = require("./secrets");
 
-exports.getToken = function() {
+exports.getToken = function(callback) {
     const encoded = Buffer.from(`${consumerKey}:${consumerSecret}`).toString(
         "base64"
     );
@@ -18,15 +18,16 @@ exports.getToken = function() {
         },
         res => {
             if (res.statusCode != 200) {
-                throw new Error(res.statusCode);
+                callback(new Error(res.statusCode));
             } else {
                 let body = "";
                 res.on("data", chunk => (body += chunk)).on("end", () => {
                     try {
                         body = JSON.parse(body);
-                        return body.access_token;
+                        callback(null, body.access_token);
                     } catch (err) {
                         console.log(err);
+                        callback(err);
                     }
                 });
             }
@@ -34,12 +35,13 @@ exports.getToken = function() {
     );
     req.on("error", err => {
         console.log(err);
+        callback(err);
     });
     req.write("grant_type=client_credentials");
     req.end();
 };
 
-exports.getTweets = function(token, screenName) {
+exports.getTweets = function(token, screenName, callback) {
     const req = https.request(
         {
             host: "api.twitter.com",
@@ -51,15 +53,15 @@ exports.getTweets = function(token, screenName) {
         },
         res => {
             if (res.statusCode != 200) {
-                return new Error(res.statusCode);
+                callback(new Error(res.statusCode));
             } else {
                 let tweets = "";
                 res.on("data", chunk => (tweets += chunk)).on("end", () => {
                     try {
                         tweets = JSON.parse(tweets);
-                        return tweets;
+                        callback(null, tweets);
                     } catch (err) {
-                        console.log(err);
+                        callback(err);
                     }
                 });
             }
@@ -67,6 +69,7 @@ exports.getTweets = function(token, screenName) {
     );
     req.on("error", err => {
         console.log(err);
+        callback(err);
     });
     req.end();
 };
