@@ -9,17 +9,21 @@ const path = __dirname + "/fun-with-fs/files";
 function logSize(url) {
     return readdir(url, { withFileTypes: true })
         .then(files => {
+            let arr = [];
             files.forEach(file => {
                 if (file.isFile()) {
-                    stat(`${url}/${file.name}`).then(stats =>
-                        console.log(`${url}/${file.name}: ${stats.size}`)
+                    arr.push(
+                        stat(`${url}/${file.name}`).then(stats =>
+                            console.log(`${url}/${file.name}: ${stats.size}`)
+                        )
                     );
                 } else {
-                    logSize(`${url}/${file.name}`);
+                    arr.push(logSize(`${url}/${file.name}`));
                 }
             });
+            return Promise.all(arr);
         })
         .catch(err => console.log(err));
 }
 
-logSize(path).then(() => console.log("done"));
+logSize(path).then(() => console.log("DONE"));
