@@ -21,7 +21,7 @@ app.get("/data.json", (req, res) => {
                     let nyTimes = tweets[0];
                     let theOnion = tweets[1];
                     let theBbc = tweets[2];
-                    console.log(tweets);
+                    console.log(nyTimes[0]);
                     let mergedArrayOfTweets = nyTimes.concat(theOnion, theBbc);
 
                     res.json(
@@ -32,7 +32,8 @@ app.get("/data.json", (req, res) => {
                                     item.entities.urls.length == 1
                             )
                             .map(item => {
-                                let title = item.full_text;
+                                let miniTitle = item.user.screen_name.toUpperCase();
+                                let title = miniTitle + ": " + item.full_text;
                                 let slicedTitle = title.slice(
                                     0,
                                     title.indexOf("http")
