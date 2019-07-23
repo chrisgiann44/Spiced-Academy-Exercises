@@ -11,7 +11,6 @@ let apiTweets = util.promisify(twApi.getTweets);
 app.get("/data.json", (req, res) => {
     apiToken()
         .then(token => {
-            console.log();
             Promise.all([
                 apiTweets(token, "nytimes"),
                 apiTweets(token, "theonion"),
@@ -21,7 +20,6 @@ app.get("/data.json", (req, res) => {
                     let nyTimes = tweets[0];
                     let theOnion = tweets[1];
                     let theBbc = tweets[2];
-                    console.log(nyTimes[0]);
                     let mergedArrayOfTweets = nyTimes.concat(theOnion, theBbc);
 
                     res.json(
