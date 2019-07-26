@@ -2,7 +2,7 @@
 Spiced-Academy-Exercises
 
 
-**1 Week ---> HTML/CSS Lab, Media Queries** </br>
+**1 Week ---> HTML/CSS Lab, Media Queries, Javascript** </br>
 **2 Week ---> DOM Events, Flexbox, CSS Grid** </br> 
 **3 Week ---> jQuery, JSON, localStorage** </br> 
 **4 Week ---> XMLHttpRequest, jQuery.ajax, Spotify Api, Handlebars, GitHub Api** </br>
